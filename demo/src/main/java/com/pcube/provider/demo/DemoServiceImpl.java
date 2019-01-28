@@ -1,4 +1,4 @@
-package com.pcube.provider;
+package com.pcube.provider.demo;
 
 import com.pcube.service.provider.demo.DemoService;
 import com.pcube.service.provider.demo.TPDemo;
@@ -7,15 +7,16 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import java.io.IOException;
 
 /**
  * Created by kenya on 2019/1/26.
  */
+//@Service(version="1.0.0")
 public class DemoServiceImpl implements DemoService{
     private static final Logger logger = LoggerFactory.getLogger(DemoServiceImpl.class);
 
+    @Override
     public TRDemo hello(TPDemo tpDemo){
         logger.info("param:{}", tpDemo);
         TRDemo trDemo = new TRDemo();

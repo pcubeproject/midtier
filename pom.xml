@@ -33,7 +33,7 @@
         <snakeyaml.version>1.21</snakeyaml.version>
         <zk.version>3.4.11</zk.version>
         <lombok.version>1.16.20</lombok.version>
-        <dubbo.version>2.5.7</dubbo.version>
+        <dubbo.version>2.6.0</dubbo.version>
 
         <mockito.version>1.9.5</mockito.version>
         <zkclient.version>0.1</zkclient.version>
