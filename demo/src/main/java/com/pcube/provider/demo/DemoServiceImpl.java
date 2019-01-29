@@ -30,10 +30,12 @@ public class DemoServiceImpl implements DemoService{
                 new String[]{"application.xml"});
         context.start();
         logger.info("提供者服务已注册成功");
-        try {
-            System.in.read();//让此程序一直跑，表示一直提供服务
-        } catch (IOException e) {
-            logger.error(ExceptionUtils.getStackTrace(e));
+        for(;;) {
+            try {
+                Thread.sleep(1000 * 10);
+            }catch (InterruptedException e){
+                logger.warn("interrupt");
+            }
         }
     }
 }

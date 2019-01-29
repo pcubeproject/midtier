@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="demo-log" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File"
+               value="/home/work/log/demo/demo.log"/>
+        <param name="DatePattern" value=".yyyyMMddHH"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%-5p %d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] [%X{SessionId}] %l [%m]%n"/>
+        </layout>
+    </appender>
+
+    <appender name="demo-access-log" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File"
+               value="/home/work/log/demo/demo-access.log"/>
+        <param name="DatePattern" value=".yyyyMMddHH"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%-5p %d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] %l [%m]%n" />
+        </layout>
+    </appender>
+
+    <appender name="demo-error-log" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File"
+               value="/home/work/log/demo/demo-error.log"/>
+        <param name="Threshold" value="error"/>
+        <param name="DatePattern" value=".yyyyMMddHH"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%-5p %d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] %l [%m]%n" />
+        </layout>
+    </appender>
+
+    <logger name="com.pcube.provider" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="demo-log"/>
+        <appender-ref ref="demo-error-log"/>
+    </logger>
+
+
+    <root>
+        <priority value="error"/>
+        <appender-ref ref="demo-log"/>
+        <appender-ref ref="demo-error-log"/>
+    </root>
+</log4j:configuration>
